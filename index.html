@@ -1,0 +1,141 @@
+<style>
+/* Slideshow container */
+.homepage-slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+  padding-bottom: 30px;
+}
+
+/* Next & previous buttons */
+.homepage-slideshow-container .prev, .homepage-slideshow-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.homepage-slideshow-container .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.homepage-slideshow-container .prev:hover, .homepage-slideshow-container .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.homepage-slideshow-container .text {
+  color: black;
+  font-size: 14px;
+  font-family: 'Open Sans';
+  padding: 5px 5px;
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  opacity: 0.6;
+}
+
+
+/* Fading animation */
+.homepage-slideshow-container .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.homepage-slideshow-container @-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.homepage-slideshow-container @keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.homepage-slideshow-container img {
+display: block;
+}
+</style>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,800,600italic,700,700italic,800italic' rel='stylesheet' type='text/css'>
+
+<div class="homepage-slideshow-container">
+  <div class="mySlides fade">
+    <img src="http://shsslobs.com/wp-content/uploads/2016/07/yes.jpg" width=100% >
+    <div class="text">Add caption describing this picture.</div>
+  </div>
+
+  <div class="mySlides fade">
+    <img src="http://shsslobs.com/wp-content/uploads/2016/06/IMG.shovels-300x2251.jpg" style="width:100%">
+    <div class="text">Add caption describing this picture.</div>
+  </div>
+
+  <div class="mySlides fade">
+    <img src="http://cherubs.medill.northwestern.edu/2016/wp-content/uploads/sites/7/2016/07/HP3-e14694853936961.jpg" style="width:100%">
+    <div class="text">More pictures?</div>
+  </div>
+  
+  <div class="mySlides fade">
+    <img src="http://cherubs.medill.northwestern.edu/2016/wp-content/uploads/sites/7/2016/07/HP4-e14694854711731.jpg" style="width:100%">
+    <div class="text">More pictures?</div>
+  </div>
+  
+  <div class="mySlides fade">
+    <img src="http://cherubs.medill.northwestern.edu/2016/wp-content/uploads/sites/7/2016/07/HP5-e14694855334181.jpg" style="width:100%">
+    <div class="text">More pitcutres?</div>
+  </div>
+  
+<div class="button">
+  <a class="prev" onclick="previousSlide()">&#10094;</a>
+  <a class="next" onclick="nextSlide()">&#10095;</a>
+</div>
+</div>
+
+<script>
+var slideIndex = 0;
+setup();
+
+function setup() {
+    var slides = document.getElementsByClassName("mySlides");
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    slides[0].style.display = "block";
+  setInterval(nextSlide, 5000); // Change image every 5 seconds
+}
+
+function nextSlide() {
+    var slides = document.getElementsByClassName("mySlides");
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > slides.length-1) {slideIndex = 0} 
+    slides[slideIndex].style.display = "block"; 
+}
+
+function previousSlide() {
+    var slides = document.getElementsByClassName("mySlides");
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
+    }
+    slideIndex--;
+    if (slideIndex < 0) { slideIndex =  slides.length-1} 
+    slides[slideIndex].style.display = "block"; 
+}
+</script>
